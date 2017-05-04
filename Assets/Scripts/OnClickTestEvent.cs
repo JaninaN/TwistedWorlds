@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class OnClickTestEvent : MonoBehaviour {
 
+    GameObject canvas, talkbox;
+
 	// Use this for initialization
 	void Start () {
-		
-	}
+        canvas = GameObject.Find("Canvas");
+        talkbox = GameObject.Find("Test_Laberkasten");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,11 +20,12 @@ public class OnClickTestEvent : MonoBehaviour {
 
     public void onSignClicked()
     {
-        GameObject testText = new GameObject("SonText");
-        testText.transform.SetParent(this.transform);
-        Text txt = testText.AddComponent<Text>();
-
-        txt.text = "Da sollen wir hin gehen Mama.";
-
+        Debug.Log("gedrüüückt");
+        RectTransform can = canvas.GetComponent<RectTransform>();
+        RectTransform sr = talkbox.GetComponent<RectTransform>();
+        can.SetSiblingIndex(10);
+        sr.SetSiblingIndex(5);
+        Canvas can2 = canvas.GetComponent<Canvas>();
+        SpriteRenderer sr2 = talkbox.GetComponent<SpriteRenderer>();
     }
 }
