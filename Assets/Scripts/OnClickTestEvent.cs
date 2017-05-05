@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class OnClickTestEvent : MonoBehaviour {
 
-    GameObject canvas, talkbox;
+    GameObject talkbox;
 
 	// Use this for initialization
 	void Start () {
-        canvas = GameObject.Find("Canvas");
         talkbox = GameObject.Find("Test_Laberkasten");
     }
 	
@@ -18,14 +17,13 @@ public class OnClickTestEvent : MonoBehaviour {
 		
 	}
 
-    public void onSignClicked()
+    private void OnMouseDown()
     {
-        Debug.Log("gedrüüückt");
-        RectTransform can = canvas.GetComponent<RectTransform>();
-        RectTransform sr = talkbox.GetComponent<RectTransform>();
-        can.SetSiblingIndex(10);
-        sr.SetSiblingIndex(5);
-        Canvas can2 = canvas.GetComponent<Canvas>();
-        SpriteRenderer sr2 = talkbox.GetComponent<SpriteRenderer>();
+        Debug.Log("mouse ist unten");
+        Sprite sprite = talkbox.GetComponent<SpriteRenderer>().sprite;
+        RectTransform trans = talkbox.GetComponent<RectTransform>();
+        trans.position = new Vector3(trans.position.x, (float)(trans.position.y - sprite.bounds.size.y), trans.position.z);
+        Debug.Log(trans.localPosition + "\n" + trans.position);
+        Debug.Log(sprite.bounds.size + "\n" + sprite.border);
     }
 }
