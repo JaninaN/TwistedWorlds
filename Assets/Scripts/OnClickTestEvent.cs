@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class OnClickTestEvent : MonoBehaviour {
 
@@ -20,10 +19,6 @@ public class OnClickTestEvent : MonoBehaviour {
     private void OnMouseDown()
     {
         Debug.Log("mouse ist unten");
-        Sprite sprite = talkbox.GetComponent<SpriteRenderer>().sprite;
-        RectTransform trans = talkbox.GetComponent<RectTransform>();
-        trans.position = new Vector3(trans.position.x, (float)(trans.position.y - sprite.bounds.size.y), trans.position.z);
-        Debug.Log(trans.localPosition + "\n" + trans.position);
-        Debug.Log(sprite.bounds.size + "\n" + sprite.border);
+        talkbox.GetComponent<Talkbox_fit_to_situation>().show("Na dann los, da lang. ok?", Resources.Load<Sprite>("Graphics/Side_Characters/Head_only/Reh_Kopf_Junge_linksblick"));
     }
 }
