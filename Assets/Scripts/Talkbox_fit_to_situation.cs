@@ -8,10 +8,10 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
     Color transparent = Color.clear;
     Color non_transparent;
 
-    GameObject leftImg, rightImg, txtbox;
+    GameObject leftImg, rightImg, txtbox, btnBar;
 
-    Vector3 hidePos, showPos;
-    bool postInit = true;
+    Vector3 hidePos; 
+    Vector3 showPos;
 
     // Use this for initialization
     void Start () {
@@ -19,32 +19,18 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
         leftImg = GameObject.Find("Image_left");
         rightImg = GameObject.Find("Image_right");
         txtbox = GameObject.Find("Textbox");
+        btnBar = GameObject.Find("ButtonBar");
 
-        hidePos = transform.position;
+        hidePos = transform.localPosition;
         showPos = new Vector3(hidePos.x, hidePos.y - GetComponent<RectTransform>().rect.height, hidePos.z);
-        Debug.Log(GetComponent<RectTransform>().rect.size);
-        Debug.Log(hidePos);
-        Debug.Log(showPos);
-        
-    }
-
-    void Update()
-    {
-        if (postInit)
-        {
-            
-
-            postInit = false;
-        }
     }
 
     //sets text and show the Dialog Window
     void activate(string m_text)
     {
         txtbox.GetComponent<Text>().text = m_text;
-        transform.position = showPos;
-        Debug.Log(transform.position);
-        Debug.Log(showPos);
+        transform.localPosition = showPos;
+        GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     //Image on left side + text to show in Dialog
@@ -77,9 +63,22 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
         txtbox.GetComponent<Text>().text = m_text;
     }
 
+    public void choice(int num_choices, string[] choices)
+    {
+        for(int i = 0; i < num_choices; i++)
+        {
+
+        }
+    }
+
     //hide Dialog Window
     public void hide()
     {
+        GetComponent<BoxCollider2D>().isTrigger = false;
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         transform.position = hidePos;
 
         leftImg.GetComponent<Image>().sprite = null;

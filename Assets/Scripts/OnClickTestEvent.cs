@@ -19,6 +19,6 @@ public class OnClickTestEvent : MonoBehaviour {
     private void OnMouseDown()
     {
         Debug.Log("mouse ist unten");
-        talkbox.GetComponent<Talkbox_fit_to_situation>().show("Na dann los, da lang. ok?", Resources.Load<Sprite>("Graphics/Side_Characters/Head_only/Reh_Kopf_Junge_linksblick"));
+        talkbox.GetComponent<Talkbox_fit_to_situation>().show("Na dann los, da lang. ok?", Resources.Load<Sprite>("Reh_Kopf_Junge_linksblick"));
     }
 }
