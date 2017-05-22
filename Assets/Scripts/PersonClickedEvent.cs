@@ -12,7 +12,7 @@ public class PersonClickedEvent : MonoBehaviour {
         data = GameObject.Find("DataStorage");
 	}
 
-    private void OnMouseUpAsButton()
+    public void clickOnPerson()
     {
         if(data.GetComponent<Storyflow>().getGameState() == GameState.Idle)
         {

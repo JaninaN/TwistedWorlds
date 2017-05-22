@@ -49,13 +49,6 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
     //hide Dialog Window
     public void hide()
     {
-        /*  //For deleting unused Buttons
-        
-        foreach (Transform child in transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }*/
-
         GetComponent<BoxCollider2D>().enabled = false;
         transform.position = hidePos;
 
