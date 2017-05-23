@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Available Characters for Interaction
 public enum Character
 {
     Fox_Mum,
@@ -34,6 +35,7 @@ public class Storyflow : MonoBehaviour {
     State currentState;
     GameState gState;
     Character currentCharacter;
+    //dialogCount = Number of Dialogs in a Conversation  currentDialog = current Dialog to display in Conversation
     int dialogCount = 0, currentDialog = 0;
     GameObject dialogBox;
     Talkbox_fit_to_situation talkbox;
@@ -52,6 +54,7 @@ public class Storyflow : MonoBehaviour {
         talkTo(currentCharacter);
     }
 	
+    //Depending on the Progress of the Player and the Character the Player is talking to, a Conversation will be displayed
 	public void talkTo(Character character)
     {
         currentCharacter = character;
@@ -60,6 +63,7 @@ public class Storyflow : MonoBehaviour {
             case State.Intro:
                 if(character == Character.Fox_Mum)
                 {
+                    //Beginn of Conversation
                     if(currentDialog == 0)
                     {
                         Dialog dia = ChapterOneDialogs.FOX_MUM_1[0];
@@ -67,12 +71,16 @@ public class Storyflow : MonoBehaviour {
                         currentDialog = 1;
                         dialogCount = ChapterOneDialogs.FOX_MUM_1.Count;
                         gState = GameState.Talk;
-                    }else if(currentDialog < dialogCount)
+                    }
+                    //Continue Conversation
+                    else if(currentDialog < dialogCount)
                     {
                         Dialog dia = ChapterOneDialogs.FOX_MUM_1[currentDialog];
                         talkbox.show(dia.getCharacter(), dia.getText());
                         currentDialog++;
-                    }else
+                    }
+                    //End of Conversation
+                    else
                     {
                         talkbox.hide();
                         currentDialog = 0;
