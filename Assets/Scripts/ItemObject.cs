@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item{
+public class ItemObject{
 
+    Item thisItem;
     int id;
     Sprite image;
     string description;
 
-	public Item(int itemID, Sprite picture, string text)
+	public ItemObject(Item i, int itemID, Sprite picture, string text)
     {
+        thisItem = i;
         id = itemID;
         image = picture;
         description = text;
+    }
+
+    public Item getItem()
+    {
+        return thisItem;
     }
 
     public int getID()

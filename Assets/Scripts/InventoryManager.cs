@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour {
     Vector3 showPos;
     Color transparent = Color.clear;
     Color non_transparent;
-    List<Item> items;
+    List<ItemObject> items;
     List<Image> itemDisplay;
     Text itemDescription;
     //current shown Page of Item Display
@@ -22,7 +22,7 @@ public class InventoryManager : MonoBehaviour {
         hidePos = transform.localPosition;
         showPos = new Vector3(hidePos.x, hidePos.y - GetComponent<RectTransform>().rect.height, hidePos.z);
         ColorUtility.TryParseHtmlString("#FFFFFFFF", out non_transparent);
-        items = new List<Item>();
+        items = new List<ItemObject>();
         itemDisplay = new List<Image>();
         itemDescription = GameObject.Find("ItemDescription").GetComponent<Text>();
         currentPage = 1;
@@ -38,10 +38,7 @@ public class InventoryManager : MonoBehaviour {
         itemDisplay.Add(GameObject.Find("Item_Eight").GetComponent<Image>());
         itemDisplay.Add(GameObject.Find("Item_Nine").GetComponent<Image>());
         itemDisplay.Add(GameObject.Find("Item_Ten").GetComponent<Image>());
-
-        //add 2 Items for test
-        addItem(GameObject.Find("DataStorage").GetComponent<ItemPool>().getItem(0));
-        addItem(GameObject.Find("DataStorage").GetComponent<ItemPool>().getItem(1));
+        
     }
 	
 	public void showInventory()
@@ -57,7 +54,7 @@ public class InventoryManager : MonoBehaviour {
     }
 
     //adds Item to Inventory
-    public void addItem(Item item)
+    public void addItem(ItemObject item)
     {
         int pagesBefore = (items.Count + 9) / 10;
         if(items.Count == 0)
@@ -79,7 +76,7 @@ public class InventoryManager : MonoBehaviour {
     }
 
     //remove Item from Inventory
-    public void removeItem(Item item)
+    public void removeItem(ItemObject item)
     {
         int pagesBefore = (items.Count + 9) / 10;
         items.Remove(item);
@@ -139,6 +136,7 @@ public class InventoryManager : MonoBehaviour {
         }
     }
 
+    //number [0...9] from item Displays in Inventory
     public void showDescription(int number)
     {
         int itemNumber = ((currentPage - 1) * 10) + number;
@@ -154,6 +152,7 @@ public class InventoryManager : MonoBehaviour {
         itemDescription.text = "";
     }
 
+    //test for adding Items on Click
     public void addTestItem()
     {
         addItem(GameObject.Find("DataStorage").GetComponent<ItemPool>().getItem(0));
