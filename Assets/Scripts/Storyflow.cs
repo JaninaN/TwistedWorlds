@@ -76,7 +76,7 @@ public class Storyflow : MonoBehaviour {
                     else if(currentDialog < dialogCount)
                     {
                         Dialog dia = ChapterOneDialogs.FOX_MUM_1[currentDialog];
-                        talkbox.show(dia.getCharacter(), dia.getText());
+                        talkbox.update(dia.getCharacter(), dia.getText());
                         currentDialog++;
                     }
                     //End of Conversation

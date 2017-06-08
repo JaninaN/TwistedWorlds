@@ -17,7 +17,6 @@ public class PersonClickedEvent : MonoBehaviour {
         if(data.GetComponent<Storyflow>().getGameState() == GameState.Idle)
         {
             data.GetComponent<Storyflow>().talkTo(character);
-            Debug.Log("idle");
         }
         
         Debug.Log("Click on " + character.ToString());

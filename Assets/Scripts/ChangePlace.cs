@@ -8,6 +8,7 @@ public class ChangePlace : MonoBehaviour {
 
 	public void goTo()
     {
-        GameObject.Find("Main Camera").GetComponent<CameraPositions>().changePosition(targetPlace);
+        GameObject camera = GameObject.Find("Main Camera");
+        camera.GetComponent<CameraPositions>().changePosition(targetPlace);
     }
 }

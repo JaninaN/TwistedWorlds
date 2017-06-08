@@ -8,14 +8,20 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
     Color transparent = Color.clear;
     Color non_transparent;
 
-    GameObject leftImg, txtbox;
+    GameObject diaWindow;
+    GameObject leftImg;
+    GameObject txtbox;
 
     Vector3 hidePos; 
     Vector3 showPos;
 
+    bool showBox = false;
+    bool hideBox = false;
+
     // Use this for initialization
     void Start () {
 		ColorUtility.TryParseHtmlString("#FFFFFFFF", out non_transparent);
+        diaWindow = GameObject.Find("DialogWindow");
         leftImg = GameObject.Find("Image_left");
         txtbox = GameObject.Find("Textbox");
 
@@ -23,12 +29,37 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
         showPos = new Vector3(hidePos.x, hidePos.y + GetComponent<RectTransform>().rect.height, hidePos.z);
     }
 
+    void Update()
+    {
+        if (showBox)
+        {
+            float step = (Time.deltaTime *199);
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + step, transform.localPosition.z);
+            if(transform.localPosition.y >= showPos.y)
+            {
+                showBox = false;
+            }
+        }
+        else if (hideBox)
+        {
+            float step = (Time.deltaTime * 199);
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - step, transform.localPosition.z);
+            if (transform.localPosition.y < hidePos.y)
+            {
+                hideBox = false;
+                leftImg.GetComponent<Image>().sprite = null;
+                leftImg.GetComponent<Image>().color = transparent;
+            }
+        }
+    }
+
     //sets text and show the Dialog Window
     void activate(string m_text)
     {
         txtbox.GetComponent<Text>().text = m_text;
-        transform.localPosition = showPos;
-        GetComponent<BoxCollider2D>().enabled = true;
+        diaWindow.GetComponent<Button>().enabled = true;
+        diaWindow.GetComponent<Image>().raycastTarget = true;
+        showBox = true;
     }
 
     //Image on left side + text to show in Dialog
@@ -41,18 +72,17 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
     }
 
     //update Text in Dialog, Images are not
-    public void updateText(string m_text)
+    public void update(Sprite leftImage, string text)
     {
-        txtbox.GetComponent<Text>().text = m_text;
+        txtbox.GetComponent<Text>().text = text;
+        leftImg.GetComponent<Image>().sprite = leftImage;
     }
 
     //hide Dialog Window
     public void hide()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
-        transform.position = hidePos;
-
-        leftImg.GetComponent<Image>().sprite = null;
-        leftImg.GetComponent<Image>().color = transparent;
+        diaWindow.GetComponent<Button>().enabled = false;
+        diaWindow.GetComponent<Image>().raycastTarget = false;
+        hideBox = true;
     }
 }
