@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour {
         itemDescription = GameObject.Find("ItemDescription").GetComponent<Text>();
         currentPage = 1;
 
-        //Fill itemDisplay with Image Components of Images that displays the Items
+        //Fill itemDisplay with Image Components of Images(GameObject) that displays the Items
         itemDisplay.Add(GameObject.Find("Item_One").GetComponent<Image>());
         itemDisplay.Add(GameObject.Find("Item_Two").GetComponent<Image>());
         itemDisplay.Add(GameObject.Find("Item_Three").GetComponent<Image>());
@@ -45,6 +45,8 @@ public class InventoryManager : MonoBehaviour {
     {
         transform.localPosition = showPos;
         currentPage = 1;
+        GameObject.Find("PreviousPage").GetComponent<Image>().enabled = false;
+        GameObject.Find("PreviousPage").GetComponent<Button>().enabled = false;
         loadItemPage();
     }
 
