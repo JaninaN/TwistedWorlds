@@ -75,7 +75,7 @@ public class CameraPositions : MonoBehaviour{
         if (move)
         {
             Vector3 distance = new Vector3(nextCameraPos.x - currentPosition.x, nextCameraPos.y - currentPosition.y, 0f);
-            float step = Time.deltaTime ;
+            float step = Time.deltaTime;
             if( (distance.x > 0) || (distance.y > 0))
             {
                 float x = transform.position.x + (distance.x * step);
@@ -85,6 +85,7 @@ public class CameraPositions : MonoBehaviour{
                 if (x >= nextCameraPos.x && y >= nextCameraPos.y)
                 {
                     move = false;
+                    currentPosition = nextCameraPos;
                 }
             }else if ((distance.x < 0) || (distance.y < 0))
             {
@@ -95,6 +96,7 @@ public class CameraPositions : MonoBehaviour{
                 if (x <= nextCameraPos.x && y <= nextCameraPos.y)
                 {
                     move = false;
+                    currentPosition = nextCameraPos;
                 }
             }else
             {
