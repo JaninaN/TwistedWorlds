@@ -16,7 +16,7 @@ public class ItemPool : MonoBehaviour {
 	// List of all aviable Items in whole Game
 	void Start () {
         items = new List<ItemObject>();
-        items.Add(new ItemObject(Item.Apple, currentID++, ItemSprites.ITEM_1, ItemDescriptions.ITEM_1));
+        items.Add(new ItemObject(Item.Apple, currentID++, ItemSprites.APPLE, ItemDescriptions.APPLE));
         items.Add(new ItemObject(Item.Shoppinglist, currentID++, ItemSprites.ITEM_2, ItemDescriptions.ITEM_2));
     }
 

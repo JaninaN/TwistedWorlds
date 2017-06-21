@@ -47,6 +47,11 @@ public class InventoryManager : MonoBehaviour {
         currentPage = 1;
         GameObject.Find("PreviousPage").GetComponent<Image>().enabled = false;
         GameObject.Find("PreviousPage").GetComponent<Button>().enabled = false;
+        if(items.Count > 10)
+        {
+            GameObject.Find("NextPage").GetComponent<Image>().enabled = true;
+            GameObject.Find("NextPage").GetComponent<Button>().enabled = true;
+        }
         loadItemPage();
     }
 

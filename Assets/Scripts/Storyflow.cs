@@ -63,29 +63,7 @@ public class Storyflow : MonoBehaviour {
             case State.Intro:
                 if(character == Character.Fox_Mum)
                 {
-                    //Beginn of Conversation
-                    if(currentDialog == 0)
-                    {
-                        Dialog dia = ChapterOneDialogs.FOX_MUM_1[0];
-                        talkbox.show(dia.getCharacter(), dia.getText());
-                        currentDialog = 1;
-                        dialogCount = ChapterOneDialogs.FOX_MUM_1.Count;
-                        gState = GameState.Talk;
-                    }
-                    //Continue Conversation
-                    else if(currentDialog < dialogCount)
-                    {
-                        Dialog dia = ChapterOneDialogs.FOX_MUM_1[currentDialog];
-                        talkbox.update(dia.getCharacter(), dia.getText());
-                        currentDialog++;
-                    }
-                    //End of Conversation
-                    else
-                    {
-                        talkbox.hide();
-                        currentDialog = 0;
-                        gState = GameState.Idle;
-                    }
+                    toDialogue(ChapterOneDialogs.FOX_MUM_1);
                 }else
                 {
                     talkbox.hide();
@@ -100,6 +78,43 @@ public class Storyflow : MonoBehaviour {
             case State.Traveler:
                 break;
         }
+    }
+
+    private void toDialogue(List<Dialog> dialog)
+    {
+        //Beginn of Conversation
+        if (currentDialog == 0)
+        {
+            Dialog dia = dialog[0];
+            talkbox.show(dia.getCharacter(), dia.getText());
+            currentDialog = 1;
+            dialogCount = dialog.Count;
+            gState = GameState.Talk;
+        }
+        //Continue Conversation
+        else if (currentDialog < dialogCount)
+        {
+            Dialog dia = dialog[currentDialog];
+            talkbox.update(dia.getCharacter(), dia.getText());
+            currentDialog++;
+        }
+        //End of Conversation
+        else
+        {
+            talkbox.hide();
+            currentDialog = 0;
+            gState = GameState.Idle;
+        }
+    }
+
+    public void finishedFadeIn()
+    {
+
+    }
+
+    public void finishedFadeOut()
+    {
+
     }
 
     public void nextState()

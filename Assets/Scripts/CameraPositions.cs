@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum CameraPos
 {
@@ -23,12 +24,14 @@ public enum CameraPos
 
 public enum RiddleCameraPos
 {
-    riddle
+    riddle01
 }
 
 public class CameraPositions : MonoBehaviour{
 
     private bool move = false;
+    private bool fadeIn = false;
+    private bool fadeOut = false;
     private Vector3 currentPosition;
     private Vector3 nextCameraPos;
 
@@ -76,34 +79,83 @@ public class CameraPositions : MonoBehaviour{
         {
             Vector3 distance = new Vector3(nextCameraPos.x - currentPosition.x, nextCameraPos.y - currentPosition.y, 0f);
             float step = Time.deltaTime;
+
             if( (distance.x > 0) || (distance.y > 0))
             {
                 float x = transform.position.x + (distance.x * step);
                 float y = transform.position.y + (distance.y * step);
-                transform.position = new Vector3(x, y, transform.position.z);
+                Vector3 newPos = new Vector3(x, y, transform.position.z);
+
                 // check if final position is reached
                 if (x >= nextCameraPos.x && y >= nextCameraPos.y)
                 {
                     move = false;
+                    newPos = nextCameraPos;
                     currentPosition = nextCameraPos;
                 }
-            }else if ((distance.x < 0) || (distance.y < 0))
+                transform.position = newPos;
+
+            }
+            else if ((distance.x < 0) || (distance.y < 0))
             {
                 float x = transform.position.x + (distance.x * step);
                 float y = transform.position.y + (distance.y * step);
-                transform.position = new Vector3(x, y, transform.position.z);
+                Vector3 newPos = new Vector3(x, y, transform.position.z);
+
                 // check if final position is reached
                 if (x <= nextCameraPos.x && y <= nextCameraPos.y)
                 {
                     move = false;
+                    newPos = nextCameraPos;
                     currentPosition = nextCameraPos;
                 }
-            }else
+                transform.position = newPos;
+
+            }
+            else
             {
                 // all values of distance are 0
                 Debug.Log("Check Camera positions, there is no distance between them.");
                 move = false;
             }
+        }
+        else if (fadeIn)
+        {
+            //slowly fades in from current display to black Screen
+            GameObject blend = GameObject.Find("Verblender");
+            Color32 color = blend.GetComponent<Image>().color;
+            byte alpha = color.a;
+            float speed = 500;
+            alpha = (byte)(alpha + (speed * Time.deltaTime));
+            color.a = alpha;
+            Debug.Log(alpha + "  " + color.a);
+            if(alpha >= 230)
+            {
+                fadeIn = false;
+                currentPosition = nextCameraPos;
+                transform.position = currentPosition;
+                color.a = 255;
+                GameObject.Find("DataStorage").GetComponent<Storyflow>().finishedFadeIn();
+            }
+            blend.GetComponent<Image>().color = color;
+        }
+        else if (fadeOut)
+        {
+            //slowly fades out from black Screen to current display
+            GameObject blend = GameObject.Find("Verblender");
+            Color32 color = blend.GetComponent<Image>().color;
+            byte alpha = color.a;
+            float speed = 100;
+            alpha = (byte)(alpha - speed * Time.deltaTime);
+            color.a = alpha;
+            if (alpha <= 25)
+            {
+                fadeOut = false;
+                blend.transform.localPosition = new Vector3(-670f, 0f, 0f);
+                color.a = 0;
+                GameObject.Find("DataStorage").GetComponent<Storyflow>().finishedFadeOut();
+            }
+            blend.GetComponent<Image>().color = color;
         }
     }
 
@@ -166,14 +218,31 @@ public class CameraPositions : MonoBehaviour{
     {
         switch (pos)
         {
-            case RiddleCameraPos.riddle:
-                transform.position = POSITION_RIDDLE;
+            case RiddleCameraPos.riddle01:
+                nextCameraPos = POSITION_RIDDLE;
                 break;
         }
+        GameObject blend = GameObject.Find("Verblender");
+        blend.transform.localPosition = new Vector3(0f, 0f, 0f);
+        fadeIn = true;
     }
 
-    public void returnFromRiddle()
+    public void returnFromRiddle(CameraPos pos)
     {
+        changePosition(pos);
+        move = false;
+        fadeOut = true;
+        currentPosition = nextCameraPos;
         transform.position = currentPosition;
+    }
+
+    public void fadeInBlender()
+    {
+        fadeIn = true;
+    }
+
+    public void fadeOutBlender()
+    {
+        fadeOut = true;
     }
 }

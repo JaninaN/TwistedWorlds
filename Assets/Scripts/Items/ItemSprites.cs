@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ItemSprites : MonoBehaviour {
 
-    public static Sprite ITEM_1;
+    public static Sprite APPLE;
     public static Sprite ITEM_2;
     
     private void Awake()
     {
-        ITEM_1 = Resources.Load<Sprite>("Items/Test_Schild");
+        APPLE = Resources.Load<Sprite>("Items/Apfel");
         ITEM_2 = Resources.Load<Sprite>("Items/Charm");
     }
 }

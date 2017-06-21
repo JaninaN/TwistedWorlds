@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IRiddle : MonoBehaviour {
+public class NumberOnLock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
