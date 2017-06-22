@@ -6,6 +6,7 @@ public class ChangePlace : MonoBehaviour {
 
     public CameraPos targetPlace;
     public RiddleCameraPos targetRiddle;
+    public CameraPos afterRiddle;
 
     public void goTo()
     {
@@ -13,6 +14,7 @@ public class ChangePlace : MonoBehaviour {
         if(targetPlace == CameraPos.riddle)
         {
             camera.GetComponent<CameraPositions>().goToRiddle(targetRiddle);
+            targetPlace = afterRiddle;
         }
         else
         {

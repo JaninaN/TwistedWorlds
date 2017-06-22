@@ -14,8 +14,8 @@ public class ChapterOneSprites : MonoBehaviour {
 
     private void Start()
     {
-        FOX_SON_HEAD = Resources.Load<Sprite>("");
-        FOX_DAUGHTER_HEAD = Resources.Load<Sprite>("");
+        FOX_SON_HEAD = Resources.Load<Sprite>("Heads/Fuchs_Kopf_Junge");
+        FOX_DAUGHTER_HEAD = Resources.Load<Sprite>("Heads/Fuchs_Kopf_Maedchen");
         FOX_MUM_HEAD = Resources.Load<Sprite>("");
         DEER_DAD_HEAD = Resources.Load<Sprite>("Heads/Reh_Kopf_Papa_rechtsblick");
         DEER_MUM_HEAD = Resources.Load<Sprite>("Heads/Reh_Kopf_Mama_rechtsblick");
