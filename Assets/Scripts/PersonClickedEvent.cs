@@ -18,7 +18,5 @@ public class PersonClickedEvent : MonoBehaviour {
         {
             data.GetComponent<Storyflow>().talkTo(character);
         }
-        
-        Debug.Log("Click on " + character.ToString());
     }
 }

@@ -200,39 +200,6 @@ public class Storyflow : MonoBehaviour {
         }
     }
 
-    public void continueStory()
-    {
-        switch (currentState)
-        {
-            case State.Tutorial:
-                if (currentDialog == dialogCount)
-                {
-                    //Player have to choose
-                    GameObject.Find("Verblender").GetComponent<Button>().enabled = false;
-                    leftChoice.GetComponent<Image>().enabled = true;
-                    leftChoice.GetComponent<Button>().enabled = true;
-                    rightChoice.GetComponent<Image>().enabled = true;
-                    rightChoice.GetComponent<Button>().enabled = true;
-                    leftChoice.GetComponentInChildren<Text>().text = ChapterOneDialogs.RIDDLE_ONE_YES;
-                    rightChoice.GetComponentInChildren<Text>().text = ChapterOneDialogs.RIDDLE_ONE_NO;
-                }
-                else
-                {
-                    tellStory(ChapterOneDialogs.FIRST_RIDDLE_BEGINNING);
-                }
-                break;
-            case State.WorldsEnd:
-                if (currentDialog == dialogCount)
-                {
-                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.two_zero);
-                }
-                tellStory(ChapterOneDialogs.FIRST_RIDDLE_DESTROY_BOX);
-                break;
-        }
-        
-        
-    }
-
     //Screen is now black
     public void finishedFadeIn()
     {
@@ -242,7 +209,7 @@ public class Storyflow : MonoBehaviour {
                 tellStory(ChapterOneDialogs.FIRST_RIDDLE_BEGINNING);
                 break;
             case State.Chosen:
-                GameObject.Find("Main Camera").GetComponent<CameraPositions>().fadeOutBlender();
+                tellStory(ChapterOneDialogs.FIRST_RIDDLE_AMULET_COLLECTED);
                 break;
         }
     }
@@ -250,7 +217,10 @@ public class Storyflow : MonoBehaviour {
     //Screen finished fade out from black to current Screen
     public void finishedFadeOut()
     {
-        GameObject.Find("Verblender").GetComponent<Button>().enabled = true;
+        GameObject blend = GameObject.Find("Verblender");
+        blend.GetComponent<Button>().enabled = true;
+        blend.transform.localPosition = new Vector3(-670f, 0f, 0f);
+        storybox.text = "";
     }
 
     //If Player have to choose between two possibilities, the given answer is chooseLeft or chooseright
@@ -263,6 +233,7 @@ public class Storyflow : MonoBehaviour {
         rightChoice.GetComponent<Button>().enabled = false;
         leftChoice.GetComponentInChildren<Text>().text = "";
         rightChoice.GetComponentInChildren<Text>().text = "";
+        tellStory(ChapterOneDialogs.FIRST_RIDDLE_BEGINNING);
         nextState();
         GameObject.Find("Main Camera").GetComponent<CameraPositions>().fadeOutBlender();
     }
@@ -318,6 +289,48 @@ public class Storyflow : MonoBehaviour {
             currentDialog = 0;
             gState = GameState.Idle;
         }
+    }
+
+    public void continueStory()
+    {
+        switch (currentState)
+        {
+            case State.Tutorial:
+                if (currentDialog == dialogCount)
+                {
+                    //Player have to choose
+                    GameObject.Find("Verblender").GetComponent<Button>().enabled = false;
+                    leftChoice.GetComponent<Image>().enabled = true;
+                    leftChoice.GetComponent<Button>().enabled = true;
+                    rightChoice.GetComponent<Image>().enabled = true;
+                    rightChoice.GetComponent<Button>().enabled = true;
+                    leftChoice.GetComponentInChildren<Text>().text = ChapterOneDialogs.RIDDLE_ONE_YES;
+                    rightChoice.GetComponentInChildren<Text>().text = ChapterOneDialogs.RIDDLE_ONE_NO;
+                }
+                else
+                {
+                    tellStory(ChapterOneDialogs.FIRST_RIDDLE_BEGINNING);
+                }
+                break;
+            case State.Chosen:
+                if (currentDialog == dialogCount)
+                {
+                    storybox.text = "";
+                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.two_zero);
+                }
+                tellStory(ChapterOneDialogs.FIRST_RIDDLE_AMULET_COLLECTED);
+                break;
+            case State.WorldsEnd:
+                if (currentDialog == dialogCount)
+                {
+                    storybox.text = "";
+                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.two_zero);
+                }
+                tellStory(ChapterOneDialogs.FIRST_RIDDLE_DESTROY_BOX);
+                break;
+        }
+
+
     }
 
     public void nextState()

@@ -128,7 +128,6 @@ public class CameraPositions : MonoBehaviour{
             float speed = 500;
             alpha = (byte)(alpha + (speed * Time.deltaTime));
             color.a = alpha;
-            Debug.Log(alpha + "  " + color.a);
             if(alpha >= 230)
             {
                 fadeIn = false;
@@ -151,7 +150,7 @@ public class CameraPositions : MonoBehaviour{
             if (alpha <= 25)
             {
                 fadeOut = false;
-                blend.transform.localPosition = new Vector3(-670f, 0f, 0f);
+                blend.transform.localPosition = new Vector3(-Screen.width, 0f, 0f);
                 color.a = 0;
                 GameObject.Find("DataStorage").GetComponent<Storyflow>().finishedFadeOut();
             }
@@ -222,9 +221,7 @@ public class CameraPositions : MonoBehaviour{
                 nextCameraPos = POSITION_RIDDLE;
                 break;
         }
-        GameObject blend = GameObject.Find("Verblender");
-        blend.transform.localPosition = new Vector3(0f, 0f, 0f);
-        fadeIn = true;
+        fadeInBlender();
     }
 
     public void returnFromRiddle(CameraPos pos)
@@ -238,6 +235,8 @@ public class CameraPositions : MonoBehaviour{
 
     public void fadeInBlender()
     {
+        GameObject blend = GameObject.Find("Verblender");
+        blend.transform.localPosition = new Vector3(0f, 0f, 0f);
         fadeIn = true;
     }
 
