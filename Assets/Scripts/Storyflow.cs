@@ -219,7 +219,6 @@ public class Storyflow : MonoBehaviour {
     {
         GameObject blend = GameObject.Find("Verblender");
         blend.GetComponent<Button>().enabled = true;
-        blend.transform.localPosition = new Vector3(-670f, 0f, 0f);
         storybox.text = "";
     }
 

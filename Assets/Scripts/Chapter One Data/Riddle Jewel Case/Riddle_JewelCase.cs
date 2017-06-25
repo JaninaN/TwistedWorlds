@@ -11,7 +11,7 @@ public class Riddle_JewelCase : MonoBehaviour {
     private GameObject numberThree;
     private GameObject numberFour;
 
-    Vector3 hidePos;
+    private GameObject locker;
     Vector3 showPos;
 
     // Use this for initialization
@@ -21,13 +21,14 @@ public class Riddle_JewelCase : MonoBehaviour {
         numberThree = GameObject.Find("Schloss_Zahlenrad_3");
         numberFour = GameObject.Find("Schloss_Zahlenrad_4");
 
-        hidePos = transform.position;
-        showPos = new Vector3(hidePos.x, hidePos.y - GameObject.Find("Lock").GetComponent<SpriteRenderer>().bounds.size.y, hidePos.z);
+        locker = GameObject.Find("Lock");
+        Vector3 hidePos = locker.transform.localPosition;
+        showPos = new Vector3(hidePos.x, hidePos.y - locker.GetComponent<SpriteRenderer>().bounds.size.y, hidePos.z);
     }
 
     public void showLock()
     {
-        GameObject.Find("Lock").transform.position = showPos;
+        locker.transform.localPosition = showPos;
     }
 
     public void checkCode()
