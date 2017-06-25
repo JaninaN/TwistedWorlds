@@ -29,9 +29,13 @@ public enum RiddleCameraPos
 
 public class CameraPositions : MonoBehaviour{
 
+
+    GameObject blend;
     private bool move = false;
     private bool fadeIn = false;
     private bool fadeOut = false;
+    private Vector3 blendHidePos;
+    private Vector3 blendShowPos;
     private Vector3 currentPosition;
     private Vector3 nextCameraPos;
 
@@ -54,6 +58,9 @@ public class CameraPositions : MonoBehaviour{
 
     private void Start()
     {
+        blend = GameObject.Find("Verblender");
+        blendHidePos = blend.transform.localPosition;
+        blendShowPos = new Vector3(blendHidePos.x + blend.GetComponent<RectTransform>().rect.width, blendHidePos.y, blendHidePos.z);
         currentPosition = POSITION_ZERO_ZERO;
 
         POSITION_RIDDLE = new Vector3(0.0f, 20.0f, -10.0f);
@@ -122,7 +129,6 @@ public class CameraPositions : MonoBehaviour{
         else if (fadeIn)
         {
             //slowly fades in from current display to black Screen
-            GameObject blend = GameObject.Find("Verblender");
             Color32 color = blend.GetComponent<Image>().color;
             byte alpha = color.a;
             float speed = 500;
@@ -141,7 +147,6 @@ public class CameraPositions : MonoBehaviour{
         else if (fadeOut)
         {
             //slowly fades out from black Screen to current display
-            GameObject blend = GameObject.Find("Verblender");
             Color32 color = blend.GetComponent<Image>().color;
             byte alpha = color.a;
             float speed = 100;
@@ -150,7 +155,7 @@ public class CameraPositions : MonoBehaviour{
             if (alpha <= 25)
             {
                 fadeOut = false;
-                blend.transform.localPosition = new Vector3(-Screen.width, 0f, 0f);
+                blend.transform.localPosition = blendHidePos;
                 color.a = 0;
                 GameObject.Find("DataStorage").GetComponent<Storyflow>().finishedFadeOut();
             }
@@ -235,8 +240,7 @@ public class CameraPositions : MonoBehaviour{
 
     public void fadeInBlender()
     {
-        GameObject blend = GameObject.Find("Verblender");
-        blend.transform.localPosition = new Vector3(0f, 0f, 0f);
+        blend.transform.localPosition = blendShowPos;
         fadeIn = true;
     }
 

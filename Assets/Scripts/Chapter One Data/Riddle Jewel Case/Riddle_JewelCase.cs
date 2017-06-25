@@ -22,7 +22,7 @@ public class Riddle_JewelCase : MonoBehaviour {
         numberFour = GameObject.Find("Schloss_Zahlenrad_4");
 
         hidePos = transform.position;
-        showPos = new Vector3(hidePos.x, 20f, hidePos.z);
+        showPos = new Vector3(hidePos.x, hidePos.y - GameObject.Find("Lock").GetComponent<SpriteRenderer>().bounds.size.y, hidePos.z);
     }
 
     public void showLock()
