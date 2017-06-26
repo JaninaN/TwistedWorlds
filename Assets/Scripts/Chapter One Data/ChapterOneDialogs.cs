@@ -13,6 +13,7 @@ public class ChapterOneDialogs : MonoBehaviour {
     public static List<Dialog> DEER_MUM_2;
     //Dialogs of Owl
     public static List<Dialog> OWL_1;
+    public static List<Dialog> OWL_2;
 
     //Storyline Dialogs
     public static List<string> FIRST_RIDDLE_BEGINNING;
@@ -52,7 +53,15 @@ public class ChapterOneDialogs : MonoBehaviour {
                                         };
         DEER_MUM_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Ich hoffe ihr seid mit meiner Ware zufrieden.")
                                         };
-        OWL_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Hallo Füchschen, wie läuft es in der Schule?"),
+        OWL_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Die Welt überlebt"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ganz gut. Wir nehmen gerade das große Märchen von den Menschen durch."),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ich habe es auch in mein Notizbuch geschrieben, dann klappt das auswendig lernen gleich viel besser!"),
+                                        new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Das ist eine gute Idee. Was kann ich dir denn gutes tun?"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Meine Mum schickt mich, ich soll Äpfel kaufen."),
+                                        new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "In Ordnung, nimm dir ruhig von den Äpfeln. Ich verrechne sie dann mit deiner Mum."),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Vielen Dank.")
+                                        };
+        OWL_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Die Welt geht unter"),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ganz gut. Wir nehmen gerade das große Märchen von den Menschen durch."),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ich habe es auch in mein Notizbuch geschrieben, dann klappt das auswendig lernen gleich viel besser!"),
                                         new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Das ist eine gute Idee. Was kann ich dir denn gutes tun?"),

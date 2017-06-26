@@ -172,7 +172,7 @@ public class Storyflow : MonoBehaviour {
                         //Game Over
 
                     }
-                    toDialogue(ChapterOneDialogs.OWL_1);
+                    toDialogue(ChapterOneDialogs.OWL_2);
                 }
                 else
                 {
