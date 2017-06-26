@@ -104,7 +104,16 @@ public class Storyflow : MonoBehaviour {
                         GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled = true;
 
                     }
-                    toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                    if (GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled == true)
+                    {
+                        toDialogue(ChapterOneDialogs.FOX_MUM_3);
+                    }
+                    else
+                    {
+                        toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                    }
+                    
+                    
                 }
                 else
                 {
@@ -126,6 +135,8 @@ public class Storyflow : MonoBehaviour {
 
                     }
                     toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                   
+
                 }
                 else if (character == Character.Owl)
                 {

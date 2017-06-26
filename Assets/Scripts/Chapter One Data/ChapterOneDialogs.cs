@@ -7,6 +7,7 @@ public class ChapterOneDialogs : MonoBehaviour {
     //Dialogs of Fox Mum
     public static List<Dialog> FOX_MUM_1;
     public static List<Dialog> FOX_MUM_2;
+    public static List<Dialog> FOX_MUM_3;
     //Dialogs of Deer Mum
     public static List<Dialog> DEER_MUM_1;
     public static List<Dialog> DEER_MUM_2;
@@ -36,6 +37,10 @@ public class ChapterOneDialogs : MonoBehaviour {
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Aber Mama, die ist unheimlich... manchmal redet sie wirres Zeug."),
                                         new Dialog(ChapterOneSprites.FOX_DAUGHTER_HEAD, "Sei nicht so hart mit Ihr, Sie ist schließlich schon sehr alt und meist alleine."),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ok ich gehe zu Ihr..."),
+                                        };
+        FOX_MUM_3 = new List<Dialog>() { new Dialog(ChapterOneSprites.FOX_DAUGHTER_HEAD, "Warst du schon bei der alten Eule?"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Nein, noch nicht."),
+                                        new Dialog(ChapterOneSprites.FOX_DAUGHTER_HEAD, "Dann geh jetzt besser, bevor es dunkel wird.")
                                         };
         DEER_MUM_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Hallo Füchschen, wie läuft es in der Schule?"),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ganz gut. Wir nehmen gerade das große Märchen von den Menschen durch."),
