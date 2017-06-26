@@ -145,7 +145,7 @@ public class Storyflow : MonoBehaviour {
                         //Owl tells Story
 
                     }
-                    toDialogue(ChapterOneDialogs.OWL_1);
+                   // toDialogue(ChapterOneDialogs.OWL_1);
                 }
                 else
                 {
@@ -172,7 +172,7 @@ public class Storyflow : MonoBehaviour {
                         //Game Over
 
                     }
-                    toDialogue(ChapterOneDialogs.OWL_2);
+                   // toDialogue(ChapterOneDialogs.OWL_2);
                 }
                 else
                 {
