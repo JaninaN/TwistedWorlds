@@ -11,6 +11,7 @@ public class ChapterOneSprites : MonoBehaviour {
     public static Sprite DEER_MUM_HEAD;
     public static Sprite DEER_SON_HEAD;
     public static Sprite DEER_DAUGHTER_HEAD;
+    public static Sprite OWL_HEAD;
 
     private void Start()
     {
@@ -21,5 +22,6 @@ public class ChapterOneSprites : MonoBehaviour {
         DEER_MUM_HEAD = Resources.Load<Sprite>("Heads/Reh_Kopf_Mama_rechtsblick");
         DEER_SON_HEAD = Resources.Load<Sprite>("Heads/Reh_Kopf_Junge_rechtsblick");
         DEER_DAUGHTER_HEAD = Resources.Load<Sprite>("Heads/Reh_Kopf_Maedchen_rechtsblick");
+        OWL_HEAD = Resources.Load<Sprite>("Heads/eule_kopf");
     }
 }

@@ -53,7 +53,7 @@ public class ChapterOneDialogs : MonoBehaviour {
                                         };
         DEER_MUM_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Ich hoffe ihr seid mit meiner Ware zufrieden.")
                                         };
-        OWL_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Die Welt überlebt"),
+        OWL_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Die Welt überlebt"),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ganz gut. Wir nehmen gerade das große Märchen von den Menschen durch."),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ich habe es auch in mein Notizbuch geschrieben, dann klappt das auswendig lernen gleich viel besser!"),
                                         new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Das ist eine gute Idee. Was kann ich dir denn gutes tun?"),
@@ -61,7 +61,7 @@ public class ChapterOneDialogs : MonoBehaviour {
                                         new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "In Ordnung, nimm dir ruhig von den Äpfeln. Ich verrechne sie dann mit deiner Mum."),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Vielen Dank.")
                                         };
-        OWL_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Die Welt geht unter"),
+        OWL_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Die Welt geht unter"),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ganz gut. Wir nehmen gerade das große Märchen von den Menschen durch."),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ich habe es auch in mein Notizbuch geschrieben, dann klappt das auswendig lernen gleich viel besser!"),
                                         new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Das ist eine gute Idee. Was kann ich dir denn gutes tun?"),
