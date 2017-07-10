@@ -1277,8 +1277,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1027, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1044, y: 0}
+  m_SizeDelta: {x: 33, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350328644
 MonoBehaviour:
@@ -3250,7 +3250,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -3261,7 +3261,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Die Menschen Story
+  m_Text: "Die Legende der Menschenwelt\r\n\r\nVor tausenden von Jahren existierten
+    zwei gro\xDFe Gruppen von Lebewesen, die Tiere  und die Menschen. Sie lebten lange
+    Zeit in Frieden zusammen bis eines Tages einige der Menschen anfingen die Tiere
+    aus deren Lebensraum zu vertreiben und sogar zu t\xF6ten. Diese Ausrottung zog
+    sich \xFCber f\xFCnf Jahre bis die Tiere sich entschlossen sich zu wehren. Zwischen
+    den Tieren und Menschen kam es zu einem Krieg der drei Jahre dauerte. Es war \r\n"
 --- !u!222 &1098770801
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3810,7 +3815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3ea6153c815c641b364caa9ac7c8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  code: 1234
+  code: 2537
 --- !u!1 &1368115150
 GameObject:
   m_ObjectHideFlags: 0
@@ -5009,7 +5014,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -5020,7 +5025,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Die Menschen Story
+  m_Text: "eine  unerbittliche Zeit und der Krieg brachte viele Opfer auf beiden Seiten.
+    Als die heiligen sieben Geistertiere sich das nicht mehr mit ansehen konnten,
+    verbannten sie die Menschen aus dieser Welt indem sie sich selbst opferten.\r\nSo
+    entstand die heutige Welt der Tiere."
 --- !u!222 &1724302045
 CanvasRenderer:
   m_ObjectHideFlags: 0

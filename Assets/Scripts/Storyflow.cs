@@ -32,7 +32,8 @@ public class Storyflow : MonoBehaviour {
         Tutorial,
         Chosen,
         Traveler,
-        WorldsEnd
+        WorldsEnd,
+        DemosEnd
     }
 
     State currentState;
@@ -128,24 +129,16 @@ public class Storyflow : MonoBehaviour {
                     toDialogue(ChapterOneDialogs.DEER_MUM_2);
                 }
                 else if (character == Character.Fox_Mum)
-                {
-                    if (currentDialog == dialogCount)
-                    {
-                        GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled = true;
-
-                    }
-                    toDialogue(ChapterOneDialogs.FOX_MUM_2);
-                   
-
+                { 
+                    //toDialogue(ChapterOneDialogs.FOX_MUM_2);
                 }
                 else if (character == Character.Owl)
                 {
                     if (currentDialog == dialogCount)
                     {
-                        //Owl tells Story
-
+                        nextState();
                     }
-                   // toDialogue(ChapterOneDialogs.OWL_1);
+                   toDialogue(ChapterOneDialogs.OWL_1);
                 }
                 else
                 {
@@ -155,6 +148,28 @@ public class Storyflow : MonoBehaviour {
                 }
                 break;
             case State.Traveler:
+                if (character == Character.Deer_Mum)
+                {
+                    toDialogue(ChapterOneDialogs.DEER_MUM_2);
+                }
+                else if (character == Character.Fox_Mum)
+                {
+                    //toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                }
+                else if (character == Character.Owl)
+                {
+                    if (currentDialog == dialogCount)
+                    {
+                        nextState();
+                    }
+                    toDialogue(ChapterOneDialogs.OWL_3);
+                }
+                else
+                {
+                    talkbox.hide();
+                    currentDialog = 0;
+                    gState = GameState.Idle;
+                }
                 break;
             case State.WorldsEnd:
                 if (character == Character.Deer_Mum)
@@ -163,16 +178,36 @@ public class Storyflow : MonoBehaviour {
                 }
                 else if (character == Character.Fox_Mum)
                 {
-                    toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                    //toDialogue(ChapterOneDialogs.FOX_MUM_2);
                 }
                 else if(character == Character.Owl)
                 {
                     if (currentDialog == dialogCount)
                     {
                         //Game Over
-
+                        currentState = State.DemosEnd;
                     }
-                   // toDialogue(ChapterOneDialogs.OWL_2);
+                   toDialogue(ChapterOneDialogs.OWL_2);
+                }
+                else
+                {
+                    talkbox.hide();
+                    currentDialog = 0;
+                    gState = GameState.Idle;
+                }
+                break;
+            case State.DemosEnd:
+                if (character == Character.Deer_Mum)
+                {
+                    toDialogue(ChapterOneDialogs.DEER_MUM_2);
+                }
+                else if (character == Character.Fox_Mum)
+                {
+                    //toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                }
+                else if (character == Character.Owl)
+                {
+                    toDialogue(ChapterOneDialogs.OWL_4);
                 }
                 else
                 {

@@ -14,6 +14,8 @@ public class ChapterOneDialogs : MonoBehaviour {
     //Dialogs of Owl
     public static List<Dialog> OWL_1;
     public static List<Dialog> OWL_2;
+    public static List<Dialog> OWL_3;
+    public static List<Dialog> OWL_4;
 
     //Storyline Dialogs
     public static List<string> FIRST_RIDDLE_BEGINNING;
@@ -53,21 +55,46 @@ public class ChapterOneDialogs : MonoBehaviour {
                                         };
         DEER_MUM_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Ich hoffe ihr seid mit meiner Ware zufrieden.")
                                         };
-        OWL_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Die Welt überlebt"),
-                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ganz gut. Wir nehmen gerade das große Märchen von den Menschen durch."),
-                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ich habe es auch in mein Notizbuch geschrieben, dann klappt das auswendig lernen gleich viel besser!"),
-                                        new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Das ist eine gute Idee. Was kann ich dir denn gutes tun?"),
-                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Meine Mum schickt mich, ich soll Äpfel kaufen."),
-                                        new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "In Ordnung, nimm dir ruhig von den Äpfeln. Ich verrechne sie dann mit deiner Mum."),
-                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Vielen Dank.")
+        OWL_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Guten Tag Frau Eule meine Mutter schickt mich. Ich bringe Ihnen Äpfel."),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Oh! Guten Tag Füchschen. Das ist aber lieb von …"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Füchschen woher hast du dieses Amulett?"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Es ist eben erschienen, ich hab keine Ahnung was das für ein Ding ist…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "… Du bist der Auserwählte!"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "WAS?"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Du wurdest auserwählt um unsere Welt vor dem Untergang zu bewahren"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Wovon reden Sie?"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Die Prophezeiung!!!"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Na toll… Auserwählter, Weltuntergang, Prophezeiung? In was für nem Spiel bin ich hier gelandet?"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Die Welt steht kurz vor dem Untergang und die Person, die von dem Amulett auserwählt wird, ist die einzige, die diese Welt vor dem Untergang noch retten kann."),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Du bist der Einzige der in der Lage ist das Amulett zu benutzen. Es ist deine Aufgabe Füchschen!"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Wenn du es nicht tust wird die Welt, wie wir sie kennen, enden"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Du bist der Auserwählte! Nur du allein – Sag mal hörst du mir eigentlich zu?"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ehm, ja… sagen Sie mir einfach was ich tun soll, damit ich das gleich hinter mich bringen kann. Auf mich wartet zu Hause noch ein neues Spiel… Also was soll ich machen?"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Die Kinder von Heute…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Dieses Amulett hat die Kraft Türen in eine andere Welt zu öffnen. Du musst diese Welt bereisen und herausfinden was für den bevorstehenden Untergang verantwortlich ist und es aufhalten!"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "ah okay... dann mach ich mich mal auf den Weg."),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Gut wenn du noch Fragen hast weist du ja wo du mich findest")
                                         };
-        OWL_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Die Welt geht unter"),
-                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ganz gut. Wir nehmen gerade das große Märchen von den Menschen durch."),
-                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ich habe es auch in mein Notizbuch geschrieben, dann klappt das auswendig lernen gleich viel besser!"),
-                                        new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "Das ist eine gute Idee. Was kann ich dir denn gutes tun?"),
-                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Meine Mum schickt mich, ich soll Äpfel kaufen."),
-                                        new Dialog(ChapterOneSprites.DEER_MUM_HEAD, "In Ordnung, nimm dir ruhig von den Äpfeln. Ich verrechne sie dann mit deiner Mum."),
-                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Vielen Dank.")
+        OWL_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Guten Tag Frau Eule meine Mutter schickt mich. Ich bringe Ihnen Äpfel."),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Oh! Guten Tag Füchschen. Das ist aber lieb von…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Füchschen woher hast du dieses Amulett und warum ist es kaputt?"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Es ist eben in so einer Schatulle erschienen und ich hab die Schatulle kaputt getreten. Bestimmt war das Amulett schon vorher kaputt…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Weißt du überhaupt was du angerichtet hast?"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Nee… ich weiß nur, dass es Konsequenzen haben wird…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Du bist der Auserwählte der die Welt vor dem Untergang retten sollte und das Einzige was dir dabei helfen konnte war dieses Amulett!"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Die Welt ist nun endgültig verloren! Nichts und Niemand kann uns jetzt noch helfen!"),
+                                        new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Okay. Ich geh dann mal nach Hause… da wartet noch ein Spiel auf mich…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "…"),
+                                        new Dialog(ChapterOneSprites.OWL_HEAD, "Alles ist verloren…")
+                                        };
+        OWL_3 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Du hast Fragen? Tut mir leid… die Demo endet hier… aber es wird noch weiter gehen…")
+                                        };
+        OWL_4 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Es ist vorbei … die Demo auch…")
                                         };
 
         FIRST_RIDDLE_BEGINNING = new List<string>() {"In einiger Entfernung ist ein Funkeln zu sehen.",
