@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 //Available Characters for Interaction
 public enum Character
 {
@@ -46,10 +47,14 @@ public class Storyflow : MonoBehaviour {
     GameObject rightChoice;
     Talkbox_fit_to_situation talkbox;
     Text storybox;
+
+    AudioSource soundDestroy;
+
+  
     
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
         currentState = State.Intro;
         gState = GameState.Idle;
         currentCharacter = Character.Fox_Child;
@@ -58,7 +63,7 @@ public class Storyflow : MonoBehaviour {
         rightChoice = GameObject.Find("StoryDesicionRight");
         talkbox = dialogBox.GetComponent<Talkbox_fit_to_situation>();
         storybox = GameObject.Find("Storytext").GetComponent<Text>();
-        
+
     }
 
     //To continue a runnig Conversation
@@ -73,6 +78,16 @@ public class Storyflow : MonoBehaviour {
         currentCharacter = character;
         switch (currentState)
         {
+
+                
+              /* case State.IntroText:
+                Vector3 pos = transform.position;
+
+                Vector3 localVectorUp = transform.TransformDirection(0, 1, 0);
+                pos += localVectorUp * scrollSpeed * Time.deltaTime;
+                transform.position = pos;
+                break;
+                */
             case State.Intro:
                 if(character == Character.Deer_Mum)
                 {
@@ -296,6 +311,7 @@ public class Storyflow : MonoBehaviour {
         GameObject.Find("Verblender").GetComponent<Button>().enabled = true;
         tellStory(ChapterOneDialogs.FIRST_RIDDLE_DESTROY_BOX);
         
+
     }
 
     public void ItemCollected(Item item)
@@ -334,6 +350,16 @@ public class Storyflow : MonoBehaviour {
             currentDialog = 0;
             gState = GameState.Idle;
         }
+
+        if (storybox.text.Contains("KRACK KRACH"))
+        {
+            soundDestroy = (AudioSource)gameObject.AddComponent<AudioSource>();
+            AudioClip myAudioClip;
+            myAudioClip = (AudioClip)Resources.Load("SFX/cracking_wood");
+            soundDestroy.clip = myAudioClip;
+            soundDestroy.volume = 0.5f;
+            soundDestroy.Play();
+        }
     }
 
     public void continueStory()
@@ -361,7 +387,7 @@ public class Storyflow : MonoBehaviour {
                 if (currentDialog == dialogCount)
                 {
                     storybox.text = "";
-                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.two_zero);
+                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.three_zero);
                 }
                 tellStory(ChapterOneDialogs.FIRST_RIDDLE_AMULET_COLLECTED);
                 break;
@@ -369,7 +395,7 @@ public class Storyflow : MonoBehaviour {
                 if (currentDialog == dialogCount)
                 {
                     storybox.text = "";
-                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.two_zero);
+                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.three_zero);
                 }
                 tellStory(ChapterOneDialogs.FIRST_RIDDLE_DESTROY_BOX);
                 break;
@@ -382,6 +408,10 @@ public class Storyflow : MonoBehaviour {
     {
         switch (currentState)
         {
+            /*case State.IntroText:
+                currentState = State.Intro;
+                break;
+                */
             case State.Intro:
                 currentState = State.Tutorial;
                 break;
