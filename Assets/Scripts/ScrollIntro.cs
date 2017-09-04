@@ -27,13 +27,14 @@ public class ScrollIntro : MonoBehaviour {
     {
         yield return new WaitForSeconds(20F);
         GameObject.Find("Story").SetActive(false);
-        GameObject maincamera = GameObject.Find("Main Camera");
-            
-        maincamera.GetComponent<CameraPositions>().changePosition(CameraPos.one_zero);
 
         GameObject camera = GameObject.Find("Camera");
         //camera.GetComponent<Camera>().depth = -2;
         camera.GetComponent<Camera>().enabled = false;
+
+        //Destroy Camera and Story after use
+        Destroy(camera);
+        Destroy(gameObject);
 
     }
     void Update()
