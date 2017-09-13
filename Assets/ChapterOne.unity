@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8889a51b07789ea46854ddea110afb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 200
 --- !u!114 &75273465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,18 +1352,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 350328644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1833568690}
-        m_MethodName: continueStory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &357927570
@@ -3341,8 +3331,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -184, y: 48.017}
-  m_SizeDelta: {x: 323, y: 405}
+  m_AnchoredPosition: {x: -193, y: 47.757996}
+  m_SizeDelta: {x: 360, y: 405.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098770800
 MonoBehaviour:
@@ -3367,7 +3357,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 22
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
@@ -3380,8 +3370,7 @@ MonoBehaviour:
     zwei gro\xDFe Gruppen von Lebewesen, die Tiere  und die Menschen. Sie lebten lange
     Zeit in Frieden zusammen bis eines Tages einige der Menschen anfingen die Tiere
     aus deren Lebensraum zu vertreiben und sogar zu t\xF6ten. Diese Ausrottung zog
-    sich \xFCber f\xFCnf Jahre bis die Tiere sich entschlossen sich zu wehren. Zwischen
-    den Tieren und Menschen kam es zu einem Krieg der drei Jahre dauerte. Es war \r\n"
+    sich \xFCber f\xFCnf Jahre bis die Tiere sich entschlossen sich zu wehren.\n"
 --- !u!222 &1098770801
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3738,22 +3727,11 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1221299562}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1833568690}
-        m_MethodName: continueTalk
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1221299562
@@ -5064,18 +5042,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1636582534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1833568690}
-        m_MethodName: chooseLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1636582534
@@ -5278,8 +5245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 220, y: 37.735}
-  m_SizeDelta: {x: 339, y: 384.4}
+  m_AnchoredPosition: {x: 220, y: 41}
+  m_SizeDelta: {x: 339, y: 392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1724302044
 MonoBehaviour:
@@ -5304,7 +5271,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 22
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
@@ -5313,8 +5280,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "eine unerbittliche Zeit und der Krieg brachte viele Opfer auf beiden Seiten.
-    Als die heiligen sieben Geistertiere sich das nicht mehr mit ansehen konnten,
+  m_Text: "Zwischen den Tieren und Menschen kam es zu einem Krieg der drei Jahre dauerte.
+    Es war \reine unerbittliche Zeit und der Krieg brachte viele Opfer auf beiden
+    Seiten. Als die heiligen sieben Geistertiere sich das nicht mehr mit ansehen konnten,
     verbannten sie die Menschen aus dieser Welt indem sie sich selbst opferten.\r\nSo
     entstand die heutige Welt der Tiere."
 --- !u!222 &1724302045
@@ -5909,18 +5877,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1805753742}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1833568690}
-        m_MethodName: chooseRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1805753742

@@ -387,7 +387,8 @@ public class Storyflow : MonoBehaviour {
                 if (currentDialog == dialogCount)
                 {
                     storybox.text = "";
-                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.three_zero);
+                    GameObject sign = GameObject.Find("Test_Schild_3");
+                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(sign.GetComponent<ChangePlace>().targetPlace);
                 }
                 tellStory(ChapterOneDialogs.FIRST_RIDDLE_AMULET_COLLECTED);
                 break;
@@ -395,7 +396,8 @@ public class Storyflow : MonoBehaviour {
                 if (currentDialog == dialogCount)
                 {
                     storybox.text = "";
-                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(CameraPos.three_zero);
+                    GameObject sign = GameObject.Find("Test_Schild_3");
+                    GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(sign.GetComponent<ChangePlace>().targetPlace);
                 }
                 tellStory(ChapterOneDialogs.FIRST_RIDDLE_DESTROY_BOX);
                 break;

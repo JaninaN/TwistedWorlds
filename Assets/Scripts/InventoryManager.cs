@@ -43,7 +43,6 @@ public class InventoryManager : MonoBehaviour {
 	
 	public void showInventory()
     {
-        Debug.Log("show invi");
         transform.localPosition = showPos;
         currentPage = 1;
         GameObject.Find("PreviousPage").GetComponent<Image>().enabled = false;
@@ -58,7 +57,6 @@ public class InventoryManager : MonoBehaviour {
 
     public void hideInventory()
     {
-        Debug.Log("hide invi");
         transform.localPosition = hidePos;
     }
 

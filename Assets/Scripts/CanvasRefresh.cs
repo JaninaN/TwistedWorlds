@@ -6,6 +6,16 @@ using UnityEngine.UI;
 
 public class CanvasRefresh : MonoBehaviour {
 
+    //Destroy this Canvas if there is already one 
+    private void Awake()
+    {
+        GameObject[] canvas = GameObject.FindGameObjectsWithTag("Canvas");
+        if(canvas.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     //Add listener to sceneLoaded Event. It´s called if a Scene was loaded
     void OnEnable()
     {
@@ -22,7 +32,7 @@ public class CanvasRefresh : MonoBehaviour {
         //Refresh References to new Storyflow Component
         Storyflow story = GameObject.Find("DataStorage").GetComponent<Storyflow>();
         GameObject dialogWindow = GameObject.Find("DialogWindow");
-        GameObject verblender = GameObject.Find("DialogWindow");
+        GameObject verblender = GameObject.Find("Verblender");
         GameObject storyDesicionLeft = GameObject.Find("StoryDesicionLeft");
         GameObject storyDesicionRight = GameObject.Find("StoryDesicionRight");
 

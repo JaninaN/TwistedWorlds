@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Talkbox_fit_to_situation : MonoBehaviour {
 
+    public int speed;
+
     Color transparent = Color.clear;
     Color non_transparent;
 
@@ -33,16 +35,18 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
     {
         if (showBox)
         {
-            float step = (Time.deltaTime *199);
+            float step = (Time.deltaTime * speed);
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + step, transform.localPosition.z);
             if(transform.localPosition.y >= showPos.y)
             {
+                transform.localPosition = showPos;
+                diaWindow.GetComponent<Button>().interactable = true;
                 showBox = false;
             }
         }
         else if (hideBox)
         {
-            float step = (Time.deltaTime * 199);
+            float step = (Time.deltaTime * speed);
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - step, transform.localPosition.z);
             if (transform.localPosition.y < hidePos.y)
             {
@@ -81,6 +85,7 @@ public class Talkbox_fit_to_situation : MonoBehaviour {
     //hide Dialog Window
     public void hide()
     {
+        diaWindow.GetComponent<Button>().interactable = true;
         diaWindow.GetComponent<Button>().enabled = false;
         diaWindow.GetComponent<Image>().raycastTarget = false;
         hideBox = true;
