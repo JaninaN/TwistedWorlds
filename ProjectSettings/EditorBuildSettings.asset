@@ -7,3 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/ChapterOne.unity
+    guid: 88e50748edea55f4bbd26a52bedca20a
+  - enabled: 1
+    path: Assets/ChapterTwo.unity
+    guid: 23958539a03efe943bdc2b9cddca893e

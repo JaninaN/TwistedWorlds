@@ -79,15 +79,6 @@ public class Storyflow : MonoBehaviour {
         switch (currentState)
         {
 
-                
-              /* case State.IntroText:
-                Vector3 pos = transform.position;
-
-                Vector3 localVectorUp = transform.TransformDirection(0, 1, 0);
-                pos += localVectorUp * scrollSpeed * Time.deltaTime;
-                transform.position = pos;
-                break;
-                */
             case State.Intro:
                 if(character == Character.Deer_Mum)
                 {

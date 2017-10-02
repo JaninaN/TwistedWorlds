@@ -26,6 +26,21 @@ public class NumberOnLock : MonoBehaviour {
         riddle.GetComponent<Riddle_JewelCase>().checkCode();
     }
 
+    public void previousNumber()
+    {
+        if (number == 0)
+        {
+            number = 9;
+        }
+        else
+        {
+            number = (number - 1) % 10;
+        }
+       
+        GetComponentInChildren<Text>().text = number.ToString();
+        riddle.GetComponent<Riddle_JewelCase>().checkCode();
+    }
+
     public int getNumber()
     {
         return number;
