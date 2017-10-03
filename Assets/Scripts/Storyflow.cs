@@ -380,6 +380,7 @@ public class Storyflow : MonoBehaviour {
                     storybox.text = "";
                     GameObject sign = GameObject.Find("Test_Schild_3");
                     GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(sign.GetComponent<ChangePlace>().targetPlace);
+                    GameObject.Find("Charm").GetComponent<Image>().enabled = true;
                 }
                 tellStory(ChapterOneDialogs.FIRST_RIDDLE_AMULET_COLLECTED);
                 break;
