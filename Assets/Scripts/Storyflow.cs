@@ -13,7 +13,8 @@ public enum Character
     Deer_Dad,
     Deer_Son,
     Deer_Daughter,
-    Owl
+    Owl,
+    Object
 }
 
 public enum GameState
@@ -40,6 +41,7 @@ public class Storyflow : MonoBehaviour {
     State currentState;
     GameState gState;
     Character currentCharacter;
+    List<Dialog> objectDialog;
     //dialogCount = Number of Dialogs in a Conversation  currentDialog = current Dialog to display in Conversation
     int dialogCount = 0, currentDialog = 0;
     GameObject dialogBox;
@@ -76,153 +78,173 @@ public class Storyflow : MonoBehaviour {
 	public void talkTo(Character character)
     {
         currentCharacter = character;
-        switch (currentState)
+
+        //an Object with fixed dialog
+        if(character == Character.Object)
         {
+            toDialogue(objectDialog);
+        }else
+        //a Person with variable dialogs
+        {
+            switch (currentState)
+            {
 
-            case State.Intro:
-                if(character == Character.Deer_Mum)
-                {
-                    if(currentDialog == dialogCount)
+                case State.Intro:
+                    if(character == Character.Deer_Mum)
                     {
-                        GameObject.Find("Apfel").GetComponent<ItemCollectable>().setCollectable();
+                        if(currentDialog == dialogCount)
+                        {
+                            GameObject.Find("Apfel").GetComponent<ItemCollectable>().setCollectable();
+                        }
+                        toDialogue(ChapterOneDialogs.DEER_MUM_1);
                     }
-                    toDialogue(ChapterOneDialogs.DEER_MUM_1);
-                }
-                else if(character == Character.Fox_Mum)
-                {
-                    toDialogue(ChapterOneDialogs.FOX_MUM_1);
-                }
-                else
-                {
-                    talkbox.hide();
-                    currentDialog = 0;
-                    gState = GameState.Idle;
-                }
-                break;
-            case State.Tutorial:
-                if (character == Character.Deer_Mum)
-                {
-                    toDialogue(ChapterOneDialogs.DEER_MUM_2);
-                }
-                else if (character == Character.Fox_Mum)
-                {
-                    if (currentDialog == dialogCount)
+                    else if(character == Character.Fox_Mum)
                     {
-                        GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled = true;
-
-                    }
-                    if (GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled == true)
-                    {
-                        toDialogue(ChapterOneDialogs.FOX_MUM_3);
+                        toDialogue(ChapterOneDialogs.FOX_MUM_1);
                     }
                     else
                     {
-                        toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                        talkbox.hide();
+                        currentDialog = 0;
+                        gState = GameState.Idle;
                     }
+                    break;
+                case State.Tutorial:
+                    if (character == Character.Deer_Mum)
+                    {
+                        toDialogue(ChapterOneDialogs.DEER_MUM_2);
+                    }
+                    else if (character == Character.Fox_Mum)
+                    {
+                        if (currentDialog == dialogCount)
+                        {
+                            GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled = true;
+
+                        }
+                        if (GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled == true)
+                        {
+                            toDialogue(ChapterOneDialogs.FOX_MUM_3);
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                        }
                     
                     
-                }
-                else
-                {
-                    talkbox.hide();
-                    currentDialog = 0;
-                    gState = GameState.Idle;
-                }
-                break;
-            case State.Chosen:
-                if (character == Character.Deer_Mum)
-                {
-                    toDialogue(ChapterOneDialogs.DEER_MUM_2);
-                }
-                else if (character == Character.Fox_Mum)
-                { 
-                    //toDialogue(ChapterOneDialogs.FOX_MUM_2);
-                }
-                else if (character == Character.Owl)
-                {
-                    if (currentDialog == dialogCount)
-                    {
-                        nextState();
                     }
-                   toDialogue(ChapterOneDialogs.OWL_1);
-                }
-                else
-                {
-                    talkbox.hide();
-                    currentDialog = 0;
-                    gState = GameState.Idle;
-                }
-                break;
-            case State.Traveler:
-                if (character == Character.Deer_Mum)
-                {
-                    toDialogue(ChapterOneDialogs.DEER_MUM_2);
-                }
-                else if (character == Character.Fox_Mum)
-                {
-                    //toDialogue(ChapterOneDialogs.FOX_MUM_2);
-                }
-                else if (character == Character.Owl)
-                {
-                    if (currentDialog == dialogCount)
+                    else
                     {
-                        nextState();
+                        talkbox.hide();
+                        currentDialog = 0;
+                        gState = GameState.Idle;
                     }
-                    toDialogue(ChapterOneDialogs.OWL_3);
-                }
-                else
-                {
-                    talkbox.hide();
-                    currentDialog = 0;
-                    gState = GameState.Idle;
-                }
-                break;
-            case State.WorldsEnd:
-                if (character == Character.Deer_Mum)
-                {
-                    toDialogue(ChapterOneDialogs.DEER_MUM_2);
-                }
-                else if (character == Character.Fox_Mum)
-                {
-                    //toDialogue(ChapterOneDialogs.FOX_MUM_2);
-                }
-                else if(character == Character.Owl)
-                {
-                    if (currentDialog == dialogCount)
+                    break;
+                case State.Chosen:
+                    if (character == Character.Deer_Mum)
                     {
-                        //Game Over
-                        currentState = State.DemosEnd;
+                        toDialogue(ChapterOneDialogs.DEER_MUM_2);
                     }
-                   toDialogue(ChapterOneDialogs.OWL_2);
-                }
-                else
-                {
-                    talkbox.hide();
-                    currentDialog = 0;
-                    gState = GameState.Idle;
-                }
-                break;
-            case State.DemosEnd:
-                if (character == Character.Deer_Mum)
-                {
-                    toDialogue(ChapterOneDialogs.DEER_MUM_2);
-                }
-                else if (character == Character.Fox_Mum)
-                {
-                    //toDialogue(ChapterOneDialogs.FOX_MUM_2);
-                }
-                else if (character == Character.Owl)
-                {
-                    toDialogue(ChapterOneDialogs.OWL_4);
-                }
-                else
-                {
-                    talkbox.hide();
-                    currentDialog = 0;
-                    gState = GameState.Idle;
-                }
-                break;
+                    else if (character == Character.Fox_Mum)
+                    { 
+                        //toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                    }
+                    else if (character == Character.Owl)
+                    {
+                        if (currentDialog == dialogCount)
+                        {
+                            nextState();
+                        }
+                       toDialogue(ChapterOneDialogs.OWL_1);
+                    }
+                    else
+                    {
+                        talkbox.hide();
+                        currentDialog = 0;
+                        gState = GameState.Idle;
+                    }
+                    break;
+                case State.Traveler:
+                    if (character == Character.Deer_Mum)
+                    {
+                        toDialogue(ChapterOneDialogs.DEER_MUM_2);
+                    }
+                    else if (character == Character.Fox_Mum)
+                    {
+                        //toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                    }
+                    else if (character == Character.Owl)
+                    {
+                        if (currentDialog == dialogCount)
+                        {
+                            nextState();
+                        }
+                        toDialogue(ChapterOneDialogs.OWL_3);
+                    }
+                    else
+                    {
+                        talkbox.hide();
+                        currentDialog = 0;
+                        gState = GameState.Idle;
+                    }
+                    break;
+                case State.WorldsEnd:
+                    if (character == Character.Deer_Mum)
+                    {
+                        toDialogue(ChapterOneDialogs.DEER_MUM_2);
+                    }
+                    else if (character == Character.Fox_Mum)
+                    {
+                        //toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                    }
+                    else if(character == Character.Owl)
+                    {
+                        if (currentDialog == dialogCount)
+                        {
+                            //Game Over
+                            currentState = State.DemosEnd;
+                        }
+                       toDialogue(ChapterOneDialogs.OWL_2);
+                    }
+                    else
+                    {
+                        talkbox.hide();
+                        currentDialog = 0;
+                        gState = GameState.Idle;
+                    }
+                    break;
+                case State.DemosEnd:
+                    if (character == Character.Deer_Mum)
+                    {
+                        toDialogue(ChapterOneDialogs.DEER_MUM_2);
+                    }
+                    else if (character == Character.Fox_Mum)
+                    {
+                        //toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                    }
+                    else if (character == Character.Owl)
+                    {
+                        toDialogue(ChapterOneDialogs.OWL_4);
+                    }
+                    else
+                    {
+                        talkbox.hide();
+                        currentDialog = 0;
+                        gState = GameState.Idle;
+                    }
+                    break;
+            }
+
+
         }
+
+
+
+    }
+
+    public void interactWithObject(List<Dialog> dialog)
+    {
+        objectDialog = dialog;
+        talkTo(Character.Object);
     }
 
     private void toDialogue(List<Dialog> dialog)
