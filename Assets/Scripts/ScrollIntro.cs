@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Timers;
-
+using UnityEngine.UI;
 
 public class ScrollIntro : MonoBehaviour {
 
     public float speed;
+
+    private bool move = true;
+    Vector3 startPosition;
     /*
     public float speed;
 
@@ -23,36 +26,60 @@ public class ScrollIntro : MonoBehaviour {
     }
     */
 
-   IEnumerator LoadLevel()
+    IEnumerator LoadLevel()
     {
         yield return new WaitForSeconds(20F);
-        GameObject.Find("Story").SetActive(false);
+        //GameObject.Find("Story").SetActive(false);
+        move = false;
+
+        GameObject panel = GameObject.Find("IntroPanel");
+        panel.GetComponent<Image>().enabled = true;
 
         GameObject camera = GameObject.Find("Camera");
-        //camera.GetComponent<Camera>().depth = -2;
         camera.GetComponent<Camera>().enabled = false;
 
-        //Destroy Camera and Story after use
-        Destroy(camera);
-        Destroy(gameObject);
+        
 
     }
+    private void Start()
+    {
+        startPosition = transform.position;
+        StartCoroutine(LoadLevel());
+    }
+
     void Update()
     {
+        if (move)
+        {
+             Vector3 position = transform.position;
 
-        Vector3 position = transform.position;
+             Vector3 localVectorUp = transform.TransformDirection(0, 1, 0);
 
-        Vector3 localVectorUp = transform.TransformDirection(0, 1, 0);
-
-        position += localVectorUp * speed * Time.deltaTime;
-        transform.position = position;
-        StartCoroutine(LoadLevel());
-            
+             position += localVectorUp * speed * Time.deltaTime;
+             transform.position = position;
+        }
 
         
-
     }
-        
+    
+    public void repeatIntro()
+    {
+        transform.position = startPosition;
+        GameObject camera = GameObject.Find("Camera");
+        camera.GetComponent<Camera>().enabled = true;
+        move = true;
+        StartCoroutine(LoadLevel());
+    }
+
+    public void exitIntro()
+    {
+        //Destroy Camera, IntroPanel and Story after use
+        GameObject camera = GameObject.Find("Camera");
+        GameObject panel = GameObject.Find("IntroPanel");
+        Destroy(camera);
+        Destroy(panel);
+        Destroy(gameObject);
+    }
 
     
 }
