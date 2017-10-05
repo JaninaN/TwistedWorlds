@@ -78,6 +78,9 @@ public class ScrollIntro : MonoBehaviour {
         GameObject panel = GameObject.Find("IntroPanel");
         Destroy(camera);
         Destroy(panel);
+
+        GameObject.Find("DataStorage").GetComponent<Storyflow>().talkTo(Character.Fox_Child);
+
         Destroy(gameObject);
     }
 
