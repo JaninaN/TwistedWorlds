@@ -14,6 +14,8 @@ public enum Character
     Deer_Son,
     Deer_Daughter,
     Owl,
+    Chipmunk,
+    Stork,
     Object
 }
 
@@ -88,8 +90,8 @@ public class Storyflow : MonoBehaviour {
         {
             switch (currentState)
             {
-
                 case State.Intro:
+                    
                     if(character == Character.Deer_Mum)
                     {
                         if(currentDialog == dialogCount)
@@ -98,9 +100,21 @@ public class Storyflow : MonoBehaviour {
                         }
                         toDialogue(ChapterOneDialogs.DEER_MUM_1);
                     }
+                    else if (character == Character.Fox_Child)
+                    {
+                        toDialogue(ChapterOneDialogs.FOX_SON_1);
+                    }
                     else if(character == Character.Fox_Mum)
                     {
                         toDialogue(ChapterOneDialogs.FOX_MUM_1);
+                    }
+                    else if (character == Character.Stork)
+                    {
+                        toDialogue(ChapterOneDialogs.STORK_1);
+                    }
+                    else if (character == Character.Chipmunk)
+                    {
+                        toDialogue(ChapterOneDialogs.CHIPMUNK_1);
                     }
                     else
                     {
@@ -110,9 +124,14 @@ public class Storyflow : MonoBehaviour {
                     }
                     break;
                 case State.Tutorial:
+                    
                     if (character == Character.Deer_Mum)
                     {
                         toDialogue(ChapterOneDialogs.DEER_MUM_2);
+                    }
+                    else if (character == Character.Fox_Child)
+                    {
+                        toDialogue(ChapterOneDialogs.FOX_SON_2);
                     }
                     else if (character == Character.Fox_Mum)
                     {
@@ -130,7 +149,14 @@ public class Storyflow : MonoBehaviour {
                             toDialogue(ChapterOneDialogs.FOX_MUM_2);
                         }
                     
-                    
+                    }
+                    else if (character == Character.Stork)
+                    {
+                        toDialogue(ChapterOneDialogs.STORK_1);
+                    }
+                    else if (character == Character.Chipmunk)
+                    {
+                        toDialogue(ChapterOneDialogs.CHIPMUNK_1);
                     }
                     else
                     {

@@ -16,6 +16,14 @@ public class ChapterOneDialogs : MonoBehaviour {
     public static List<Dialog> OWL_2;
     public static List<Dialog> OWL_3;
     public static List<Dialog> OWL_4;
+    //Dialogs of Chipmunk
+    public static List<Dialog> CHIPMUNK_1;
+    //Dialogs of Stork
+    public static List<Dialog> STORK_1;
+    //Dialogs of Fox Son
+    public static List<Dialog> FOX_SON_1;
+    public static List<Dialog> FOX_SON_2;
+
 
     //Storyline Dialogs
     public static List<string> FIRST_RIDDLE_BEGINNING;
@@ -94,8 +102,19 @@ public class ChapterOneDialogs : MonoBehaviour {
                                         };
         OWL_3 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Du hast Fragen? Tut mir leid… die Demo endet hier… aber es wird noch weiter gehen…")
                                         };
-        OWL_4 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Es ist vorbei … die Demo auch…")
-                                        };
+        OWL_4 = new List<Dialog>() { new Dialog(ChapterOneSprites.OWL_HEAD, "Es ist vorbei … die Demo auch…")};
+
+        CHIPMUNK_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.CHIPMUNK_HEAD, "Neue tollle Stoffe!"),
+                                          new Dialog(ChapterOneSprites.CHIPMUNK_HEAD, "Hättest du Interesse?"),
+                                          new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Momentan brauche ich keinen, danke."),
+                                          new Dialog(ChapterOneSprites.CHIPMUNK_HEAD, "Okay. Falls du es dir überlegst, ich bin jeden Dienstag auf dem Markt. ")};
+
+        FOX_SON_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Noch schnell die Einkäufe für Mum erledigen, dann kann ich weiter GameStation spielen.") };
+
+        FOX_SON_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Jetzt schnell nach Hause.") };
+
+        STORK_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.STORK_HEAD, "Wir liefern schneller als die Schneckenpost") };
+
 
         FIRST_RIDDLE_BEGINNING = new List<string>() {"In einiger Entfernung ist ein Funkeln zu sehen.",
                                                     "Das Licht wird stärker und blendet nun sogar.",
