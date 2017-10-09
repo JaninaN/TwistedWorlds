@@ -37,7 +37,9 @@ public class ChapterOneDialogs : MonoBehaviour {
     public static List<Dialog> CHIPMUNK_1;
     public static List<Dialog> CHIPMUNK_2;
     public static List<Dialog> CHIPMUNK_3;
-
+    //Dialogs of Fox Son
+    public static List<Dialog> FOX_SON_1;
+    public static List<Dialog> FOX_SON_2;
     //Storyline Dialogs
     public static List<string> FIRST_RIDDLE_BEGINNING;
     public static List<string> FIRST_RIDDLE_DESTROY_BOX;
@@ -166,7 +168,8 @@ public class ChapterOneDialogs : MonoBehaviour {
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Ja, aber ich muss jetzt auch noch die Welt retten..."),
                                         new Dialog(ChapterOneSprites.FOX_DAUGHTER_HEAD, "Das neue Spiel hat dir schon zugesetzt was? Vielleicht solltest du weniger zocken...")
                                         };
-        STORK_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.STORK_HEAD, "Hallo junger Fuchs, wie kann ich dir helfen?"),
+        STORK_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.STORK_HEAD, "Wir liefern schneller als die Schneckenpost!"),
+		            new Dialog(ChapterOneSprites.STORK_HEAD, "Hallo junger Fuchs, wie kann ich dir helfen?"),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Hallo Herr Storch! Eigentlich gar nicht mehr..."),
                                         new Dialog(ChapterOneSprites.STORK_HEAD, "Hahaha! Die Jugend von heute, immer so sarkastisch."),
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Schlimm oder?"),
@@ -196,6 +199,10 @@ public class ChapterOneDialogs : MonoBehaviour {
                                         new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Sie meinen das Amulett? Das ist ein Amulett mit dem ich zwischen den Dimensionen hin und her reisen kann um die Welt zu retten."),
                                         new Dialog(ChapterOneSprites.CHIPMUNK_HEAD, "Och, das ist ja niedlich. Kinder haben so viel Fantasie.")
                                         };
+
+        FOX_SON_1 = new List<Dialog>() { new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Noch schnell die Einkäufe für Mum erledigen, dann kann ich weiter GameStation spielen.") };
+
+        FOX_SON_2 = new List<Dialog>() { new Dialog(ChapterOneSprites.FOX_SON_HEAD, "Jetzt schnell nach Hause.") };
 
         FIRST_RIDDLE_BEGINNING = new List<string>() {"In einiger Entfernung ist ein Funkeln zu sehen.",
                                                     "Das Licht wird stärker und blendet nun sogar.",

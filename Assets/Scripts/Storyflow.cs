@@ -100,8 +100,8 @@ public class Storyflow : MonoBehaviour {
         {
             switch (currentState)
             {
-
                 case State.Intro:
+                    
                     if(character == Character.Deer_Mum)
                     {
                         if(currentDialog == dialogCount)
@@ -110,10 +110,15 @@ public class Storyflow : MonoBehaviour {
                         }
                         toDialogue(ChapterOneDialogs.DEER_MUM_1);
                     }
+                    else if (character == Character.Fox_Child)
+                    {
+                        toDialogue(ChapterOneDialogs.FOX_SON_1);
+                    }
                     else if(character == Character.Fox_Mum)
                     {
                         toDialogue(ChapterOneDialogs.FOX_MUM_1);
                     }
+<<<<<<< HEAD
                     else if(character == Character.Deer_Son)
                     {
                         if (DeerSonFirstDialog== true)
@@ -201,14 +206,18 @@ public class Storyflow : MonoBehaviour {
                     {
                         toDialogue(ChapterOneDialogs.DEER_MUM_2);
                     }
+                    else if (character == Character.Fox_Child)
+                    {
+                        toDialogue(ChapterOneDialogs.FOX_SON_2);
+                    }
                     else if (character == Character.Fox_Mum)
                     {
                         if (currentDialog == dialogCount)
                         {
-                            GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled = true;
+                            GameObject.Find("Schild_Eulenhütte").GetComponent<Collider2D>().enabled = true;
 
                         }
-                        if (GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled == true)
+                        if (GameObject.Find("Schild_Eulenhütte").GetComponent<Collider2D>().enabled == true)
                         {
                             toDialogue(ChapterOneDialogs.FOX_MUM_3);
                         }
@@ -633,7 +642,7 @@ public class Storyflow : MonoBehaviour {
                 if (currentDialog == dialogCount)
                 {
                     storybox.text = "";
-                    GameObject sign = GameObject.Find("Test_Schild_3");
+                    GameObject sign = GameObject.Find("Schild_Eulenhütte");
                     GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(sign.GetComponent<ChangePlace>().targetPlace);
                     GameObject.Find("Charm").GetComponent<Image>().enabled = true;
                 }
@@ -643,7 +652,7 @@ public class Storyflow : MonoBehaviour {
                 if (currentDialog == dialogCount)
                 {
                     storybox.text = "";
-                    GameObject sign = GameObject.Find("Test_Schild_3");
+                    GameObject sign = GameObject.Find("Schild_Eulenhütte");
                     GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(sign.GetComponent<ChangePlace>().targetPlace);
                 }
                 tellStory(ChapterOneDialogs.FIRST_RIDDLE_DESTROY_BOX);
