@@ -118,7 +118,7 @@ public class Storyflow : MonoBehaviour {
                     {
                         toDialogue(ChapterOneDialogs.FOX_MUM_1);
                     }
-<<<<<<< HEAD
+
                     else if(character == Character.Deer_Son)
                     {
                         if (DeerSonFirstDialog== true)
