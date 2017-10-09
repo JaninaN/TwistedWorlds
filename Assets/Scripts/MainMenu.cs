@@ -14,4 +14,10 @@ public class MainMenu : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public void ReturnToMainMenu()
+    {
+        Destroy(GameObject.Find("Canvas"));
+        SceneManager.LoadScene("MainMenu");
+    }
 }

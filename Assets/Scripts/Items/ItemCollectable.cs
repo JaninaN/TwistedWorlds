@@ -18,9 +18,8 @@ public class ItemCollectable : MonoBehaviour {
     public void collect()
     {
         GameObject.Find("Inventory").GetComponent<InventoryManager>().addItem(GameObject.Find("DataStorage").GetComponent<ItemPool>().getItem(item));
-        GetComponent<Collider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().enabled = false;
         GameObject.Find("DataStorage").GetComponent<Storyflow>().ItemCollected(item);
+        Destroy(gameObject);
     }
 
     public void setCollectable()

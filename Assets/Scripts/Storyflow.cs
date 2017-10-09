@@ -444,6 +444,11 @@ public class Storyflow : MonoBehaviour {
                         {
                             //Game Over
                             currentState = State.DemosEnd;
+                            MainMenu  menuComponent= GameObject.Find("DataStorage").GetComponent<MainMenu>();
+                            GameObject gameOver = Instantiate(Resources.Load("GameOverPanel", typeof(GameObject))) as GameObject;
+                            gameOver.GetComponent<Button>().onClick.AddListener(menuComponent.ReturnToMainMenu);
+                            GameObject canvas = GameObject.Find("Canvas");
+                            gameOver.transform.SetParent(canvas.transform, false);
                         }
                        toDialogue(ChapterOneDialogs.OWL_2);
                     }
