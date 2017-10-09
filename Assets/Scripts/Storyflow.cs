@@ -14,8 +14,9 @@ public enum Character
     Deer_Son,
     Deer_Daughter,
     Owl,
-    Chipmunk,
+    Fox_Daughter,
     Stork,
+    Chipmunk,
     Object
 }
 
@@ -54,11 +55,16 @@ public class Storyflow : MonoBehaviour {
 
     AudioSource soundDestroy;
 
+    bool DeerSonFirstDialog;
+    bool DeerDaughterFirstDialog;
+    bool FoxDaughterFirstDialog;
+    bool StorkFirstDialog;
+    bool ChipmunkFirstDialog;
   
     
 
-	// Use this for initialization
-	public void Start () {
+    // Use this for initialization
+    public void Start () {
         currentState = State.Intro;
         gState = GameState.Idle;
         currentCharacter = Character.Fox_Child;
@@ -67,7 +73,11 @@ public class Storyflow : MonoBehaviour {
         rightChoice = GameObject.Find("StoryDesicionRight");
         talkbox = dialogBox.GetComponent<Talkbox_fit_to_situation>();
         storybox = GameObject.Find("Storytext").GetComponent<Text>();
-
+        DeerSonFirstDialog = true;
+        DeerDaughterFirstDialog = true;
+        FoxDaughterFirstDialog = true;
+        StorkFirstDialog = true;
+        ChipmunkFirstDialog = true;
     }
 
     //To continue a runnig Conversation
@@ -108,13 +118,81 @@ public class Storyflow : MonoBehaviour {
                     {
                         toDialogue(ChapterOneDialogs.FOX_MUM_1);
                     }
-                    else if (character == Character.Stork)
+<<<<<<< HEAD
+                    else if(character == Character.Deer_Son)
                     {
-                        toDialogue(ChapterOneDialogs.STORK_1);
+                        if (DeerSonFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_SON_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                DeerSonFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_SON_2);
+                        }
+                    }  
+                    else if(character == Character.Deer_Daughter)
+                    {
+                        if (DeerDaughterFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_DAUGHTER_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                DeerDaughterFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_DAUGHTER_2);
+                        }
+                    }   
+                    else if(character == Character.Fox_Daughter)
+                    {
+                        if (FoxDaughterFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.FOX_DAUGHTER_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                FoxDaughterFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.FOX_DAUGHTER_2);
+                        }
                     }
-                    else if (character == Character.Chipmunk)
+                    else if(character == Character.Stork)
                     {
-                        toDialogue(ChapterOneDialogs.CHIPMUNK_1);
+                        if (StorkFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.STORK_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                StorkFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.STORK_2);
+                        }
+                    }
+                   else if(character == Character.Chipmunk)
+                    {
+                        if (ChipmunkFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.CHIPMUNK_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                ChipmunkFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.CHIPMUNK_2);
+                        }
                     }
                     else
                     {
@@ -146,16 +224,82 @@ public class Storyflow : MonoBehaviour {
                         else
                         {
                             toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                        }    
+                    }
+                    else if(character == Character.Deer_Son)
+                    {
+                        if (DeerSonFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_SON_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                DeerSonFirstDialog= false;   
+                            }
                         }
-                    
-                    }
-                    else if (character == Character.Stork)
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_SON_2);
+                        }
+                    }  
+                    else if(character == Character.Deer_Daughter)
                     {
-                        toDialogue(ChapterOneDialogs.STORK_1);
-                    }
-                    else if (character == Character.Chipmunk)
+                        if (DeerDaughterFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_DAUGHTER_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                DeerDaughterFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_DAUGHTER_2);
+                        }
+                    }   
+                    else if(character == Character.Fox_Daughter)
                     {
-                        toDialogue(ChapterOneDialogs.CHIPMUNK_1);
+                        if (FoxDaughterFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.FOX_DAUGHTER_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                FoxDaughterFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.FOX_DAUGHTER_2);
+                        }
+                    }
+                    else if(character == Character.Stork)
+                    {
+                        if (StorkFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.STORK_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                StorkFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.STORK_2);
+                        }
+                    }
+                   else if(character == Character.Chipmunk)
+                    {
+                        if (ChipmunkFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.CHIPMUNK_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                ChipmunkFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.CHIPMUNK_2);
+                        }
                     }
                     else
                     {
@@ -171,7 +315,7 @@ public class Storyflow : MonoBehaviour {
                     }
                     else if (character == Character.Fox_Mum)
                     { 
-                        //toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                        toDialogue(ChapterOneDialogs.FOX_MUM_3);
                     }
                     else if (character == Character.Owl)
                     {
@@ -180,6 +324,48 @@ public class Storyflow : MonoBehaviour {
                             nextState();
                         }
                        toDialogue(ChapterOneDialogs.OWL_1);
+                    }
+                    else if(character == Character.Deer_Son)
+                    {
+                        toDialogue(ChapterOneDialogs.DEER_SON_2);
+                    }  
+                    else if(character == Character.Deer_Daughter)
+                    {
+                        if (DeerDaughterFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_DAUGHTER_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                DeerDaughterFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_DAUGHTER_2);
+                        }
+                    }   
+                    else if(character == Character.Fox_Daughter)
+                    {
+                        toDialogue(ChapterOneDialogs.FOX_DAUGHTER_2);
+                    }
+                    else if(character == Character.Stork)
+                    {
+                        if (StorkFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.STORK_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                StorkFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.STORK_2);
+                        }
+                    }
+                   else if(character == Character.Chipmunk)
+                    {
+                        toDialogue(ChapterOneDialogs.CHIPMUNK_2);
                     }
                     else
                     {
@@ -191,11 +377,11 @@ public class Storyflow : MonoBehaviour {
                 case State.Traveler:
                     if (character == Character.Deer_Mum)
                     {
-                        toDialogue(ChapterOneDialogs.DEER_MUM_2);
+                        toDialogue(ChapterOneDialogs.DEER_MUM_3);
                     }
                     else if (character == Character.Fox_Mum)
                     {
-                        //toDialogue(ChapterOneDialogs.FOX_MUM_2);
+                        toDialogue(ChapterOneDialogs.FOX_MUM_4);
                     }
                     else if (character == Character.Owl)
                     {
@@ -204,6 +390,37 @@ public class Storyflow : MonoBehaviour {
                             nextState();
                         }
                         toDialogue(ChapterOneDialogs.OWL_3);
+                    }
+                    else if (character == Character.Deer_Son)
+                    {
+                        toDialogue(ChapterOneDialogs.DEER_SON_3);
+                    }
+                    else if(character == Character.Deer_Daughter)
+                    {
+                        if (DeerDaughterFirstDialog== true)
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_DAUGHTER_1);
+                            if(currentDialog == dialogCount)
+                            {
+                                DeerDaughterFirstDialog= false;   
+                            }
+                        }
+                        else
+                        {
+                            toDialogue(ChapterOneDialogs.DEER_DAUGHTER_2);
+                        }
+                    }   
+                    else if (character == Character.Fox_Daughter)
+                    {
+                        toDialogue(ChapterOneDialogs.FOX_DAUGHTER_3);
+                    }
+                    else if (character == Character.Stork)
+                    {
+                        toDialogue(ChapterOneDialogs.STORK_3);
+                    }
+                    else if (character == Character.Chipmunk)
+                    {
+                        toDialogue(ChapterOneDialogs.CHIPMUNK_3);
                     }
                     else
                     {
