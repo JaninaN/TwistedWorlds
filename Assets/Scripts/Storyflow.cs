@@ -124,7 +124,6 @@ public class Storyflow : MonoBehaviour {
                     }
                     break;
                 case State.Tutorial:
-                    
                     if (character == Character.Deer_Mum)
                     {
                         toDialogue(ChapterOneDialogs.DEER_MUM_2);
@@ -137,10 +136,10 @@ public class Storyflow : MonoBehaviour {
                     {
                         if (currentDialog == dialogCount)
                         {
-                            GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled = true;
+                            GameObject.Find("Schild_Eulenhütte").GetComponent<Collider2D>().enabled = true;
 
                         }
-                        if (GameObject.Find("Test_Schild_3").GetComponent<Collider2D>().enabled == true)
+                        if (GameObject.Find("Schild_Eulenhütte").GetComponent<Collider2D>().enabled == true)
                         {
                             toDialogue(ChapterOneDialogs.FOX_MUM_3);
                         }
@@ -426,7 +425,7 @@ public class Storyflow : MonoBehaviour {
                 if (currentDialog == dialogCount)
                 {
                     storybox.text = "";
-                    GameObject sign = GameObject.Find("Test_Schild_3");
+                    GameObject sign = GameObject.Find("Schild_Eulenhütte");
                     GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(sign.GetComponent<ChangePlace>().targetPlace);
                     GameObject.Find("Charm").GetComponent<Image>().enabled = true;
                 }
@@ -436,7 +435,7 @@ public class Storyflow : MonoBehaviour {
                 if (currentDialog == dialogCount)
                 {
                     storybox.text = "";
-                    GameObject sign = GameObject.Find("Test_Schild_3");
+                    GameObject sign = GameObject.Find("Schild_Eulenhütte");
                     GameObject.Find("Main Camera").GetComponent<CameraPositions>().returnFromRiddle(sign.GetComponent<ChangePlace>().targetPlace);
                 }
                 tellStory(ChapterOneDialogs.FIRST_RIDDLE_DESTROY_BOX);
