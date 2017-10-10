@@ -208,7 +208,7 @@ public class ChapterOneDialogs : MonoBehaviour {
                                                     "Das Licht wird stärker und blendet nun sogar.",
                                                     "Langsam legt sich das Licht und Konturen werden sichtbar...",
                                                     "Deine Hände haben sich von alleine angehoben und du hälst nun eine Schatulle in den Händen.",
-                                                    "Nach vorsichtiger Begutachtung erkennst du ein Schloss mit einem 4-Stelligen Zahlencode, jedoch lässt sich die Schatulle ohne Code icht öffnen.",
+                                                    "Nach vorsichtiger Begutachtung erkennst du ein Schloss mit einem 4-Stelligen Zahlencode, jedoch lässt sich die Schatulle ohne Code nicht öffnen.",
                                                     "Was willst du mit der Schatulle anstellen?"
                                                     };
         FIRST_RIDDLE_DESTROY_BOX = new List<string>() {"Du legst die Schatulle auf den Boden und trittst beherzt darauf.",
