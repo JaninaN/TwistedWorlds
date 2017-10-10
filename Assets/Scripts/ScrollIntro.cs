@@ -10,22 +10,7 @@ public class ScrollIntro : MonoBehaviour {
 
     private bool move = true;
     Vector3 startPosition;
-    /*
-    public float speed;
-
-
-         // Update is called once per frame
-         void Update () {
-             Vector3 position = transform.position;
-
-             Vector3 localVectorUp = transform.TransformDirection(0, 1, 0);
-
-             position += localVectorUp * speed * Time.deltaTime;
-             transform.position = position;
-
-    }
-    */
-
+    
     IEnumerator LoadLevel()
     {
         yield return new WaitForSeconds(20F);
